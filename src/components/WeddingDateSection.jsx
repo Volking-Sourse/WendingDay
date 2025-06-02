@@ -1,9 +1,11 @@
+import React from "react";
 import {
   Box,
   Heading,
   Text,
   SimpleGrid,
   VStack,
+  Container // ✅ Теперь импортируем правильно
 } from "@chakra-ui/react";
 
 const WeddingDateSection = () => {
