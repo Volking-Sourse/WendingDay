@@ -13,7 +13,7 @@ const WeddingDateSection = () => {
       <h2 className="text-3xl font-semibold text-pink-600 mb-4">Дата свадьбы</h2>
       <p className="text-lg text-gray-700 mb-6">июль 2025</p>
 
-      {/* SVG календарь */}
+      {/* Календарь */}
       <div style={{
         display: "inline-block",
         backgroundColor: "#fff",
@@ -45,24 +45,50 @@ const WeddingDateSection = () => {
             const col = (i + firstDayOffset) % 7;
             const isWeddingDay = day === weddingDay;
 
+            if (isWeddingDay) {
+              return (
+                <g key={i}>
+                  {/* SVG сердце с анимацией смены цвета */}
+                  <path
+                    className="heart animate-color"
+                    d={`M ${40 + col * 35} ${100 + row * 35}
+                        m -15,0
+                        q 15,-18 30,0
+                        q 15,18 0,30
+                        h -30
+                        q -15,-18 0,-30
+                        z`}
+                    fill="#ffe6ec"
+                    stroke="#e95a8f"
+                    strokeWidth="2"
+                  />
+                  {/* Текст внутри сердца */}
+                  <text
+                    x={40 + col * 35}
+                    y={100 + row * 35 + 5}
+                    fontSize="12"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontWeight="bold"
+                    fill="#d94f8a"
+                  >
+                    {day}
+                  </text>
+                </g>
+              );
+            }
+
             return (
               <g key={i}>
-                {isWeddingDay && (
-                  <>
-                    {/* Внешнее кольцо вокруг дня свадьбы */}
-                    <circle cx={40 + col * 35} cy={100 + row * 35} r="20" fill="#ffe6ec" stroke="#e95a8f" strokeWidth="2" />
-                  </>
-                )}
-
-                {/* День */}
+                {/* Обычные дни */}
+                <circle cx={40 + col * 35} cy={100 + row * 35} r="12" fill="#f8f8f8" stroke="#ddd" strokeWidth="1" />
                 <text
                   x={40 + col * 35}
                   y={100 + row * 35}
                   fontSize="12"
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  fontWeight={isWeddingDay ? "bold" : "normal"}
-                  fill={isWeddingDay ? "#d94f8a" : "#333"}
+                  fill="#333"
                 >
                   {day}
                 </text>
@@ -76,6 +102,40 @@ const WeddingDateSection = () => {
       <p className="mt-6 text-lg font-medium text-pink-600">
         Мы ждём вас <strong>25 июля 2025 года</strong> в Нижнем Новгороде
       </p>
+
+      {/* Встроенные стили для анимации */}
+      <style jsx>{`
+        .animate-color {
+          animation: colorFade 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes colorFade {
+          0% {
+            fill: #ffe6ec;
+            stroke: #e95a8f;
+          }
+          50% {
+            fill: #ffd1d9;
+            stroke: #d94f8a;
+          }
+          100% {
+            fill: #ffe6ec;
+            stroke: #e95a8f;
+          }
+        }
+
+        /* Мягкое появление при скролле */
+        .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 1s ease;
+        }
+
+        .visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   );
 };
