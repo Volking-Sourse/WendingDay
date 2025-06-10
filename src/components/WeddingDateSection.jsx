@@ -5,7 +5,7 @@ const WeddingDateSection = () => {
   const daysInJuly = 31;
   const weddingDay = 25;
 
-  // 1 июля 2025 — это вторник → отступ на 2 дня (начинаем со вторника)
+  // 1 июля 2025 — вторник → отступ на 2 дня
   const firstDayOffset = 2;
 
   return (
@@ -14,7 +14,14 @@ const WeddingDateSection = () => {
       <p className="text-lg text-gray-700 mb-6">июль 2025</p>
 
       {/* SVG календарь */}
-      <div style={{ display: "inline-block", backgroundColor: "#fff", padding: "1.5rem", borderRadius: "1rem", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
+      <div style={{
+        display: "inline-block",
+        backgroundColor: "#fff",
+        padding: "1.5rem",
+        borderRadius: "1rem",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+        maxWidth: "320px"
+      }}>
         <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
           {/* Фон календаря */}
           <rect x="0" y="0" width="300" height="300" rx="16" ry="16" fill="#fff" stroke="#e2e8f0" strokeWidth="2" />
@@ -40,7 +47,14 @@ const WeddingDateSection = () => {
 
             return (
               <g key={i}>
-                <circle cx={40 + col * 35} cy={100 + row * 35} r="12" fill={isWeddingDay ? "#ffe6ec" : "#f8f8f8"} stroke={isWeddingDay ? "#e95a8f" : "#ddd"} strokeWidth="1" />
+                {isWeddingDay && (
+                  <>
+                    {/* Внешнее кольцо вокруг дня свадьбы */}
+                    <circle cx={40 + col * 35} cy={100 + row * 35} r="20" fill="#ffe6ec" stroke="#e95a8f" strokeWidth="2" />
+                  </>
+                )}
+
+                {/* День */}
                 <text
                   x={40 + col * 35}
                   y={100 + row * 35}
@@ -52,19 +66,13 @@ const WeddingDateSection = () => {
                 >
                   {day}
                 </text>
-                {isWeddingDay && (
-                  <text x={40 + col * 35} y={100 + row * 35 - 18} fontSize="16" textAnchor="middle" fill="#ff4b6c">
-                    ❤️
-                  </text>
-                )}
               </g>
             );
           })}
         </svg>
-
       </div>
 
-      {/* Текст под календарём */}
+      {/* Подпись под календарём */}
       <p className="mt-6 text-lg font-medium text-pink-600">
         Мы ждём вас <strong>25 июля 2025 года</strong> в Нижнем Новгороде
       </p>
