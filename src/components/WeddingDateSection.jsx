@@ -4,7 +4,9 @@ const WeddingDateSection = () => {
   return (
     <section style={{ textAlign: "center", padding: "4rem 1rem" }}>
       {/* Заголовок */}
-      <h3 className="text-2xl font-semibold text-pink-600 mb-2">Июль 2025</h3>
+      <h3 style={{ fontSize: "1.5rem", color: "#d94f8a", marginBottom: "0.5rem" }}>
+        Июль 2025
+      </h3>
 
       {/* Контейнер картинки */}
       <div style={{
@@ -16,7 +18,7 @@ const WeddingDateSection = () => {
         maxWidth: "320px"
       }}>
         <img
-          src="/calendar.jpg" // Убедись, что файл лежит в public/
+          src="/calendar.jpg"
           alt="Календарь июля 2025"
           style={{
             width: "100%",
@@ -30,7 +32,11 @@ const WeddingDateSection = () => {
       </div>
 
       {/* Подпись под календарём */}
-      <p className="mt-6 text-lg font-medium text-pink-600">
+      <p style={{
+        marginTop: "1.5rem",
+        fontSize: "1.1rem",
+        color: "#d94f8a"
+      }}>
         Мы ждём вас <strong>25 июля 2025 года</strong> в Нижнем Новгороде
       </p>
     </section>
