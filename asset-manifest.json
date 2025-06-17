@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/WendingDay/static/js/main.47e6c4cd.js",
+    "main.js": "/WendingDay/static/js/main.c4790213.js",
     "index.html": "/WendingDay/index.html",
-    "main.47e6c4cd.js.map": "/WendingDay/static/js/main.47e6c4cd.js.map"
+    "main.c4790213.js.map": "/WendingDay/static/js/main.c4790213.js.map"
   },
   "entrypoints": [
-    "static/js/main.47e6c4cd.js"
+    "static/js/main.c4790213.js"
   ]
 }
