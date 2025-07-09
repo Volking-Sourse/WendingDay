@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/WendingDay/static/js/main.466399aa.js",
-    "index.html": "/WendingDay/index.html",
-    "main.466399aa.js.map": "/WendingDay/static/js/main.466399aa.js.map"
+    "main.js": "./static/js/main.466399aa.js",
+    "index.html": "./index.html",
+    "main.466399aa.js.map": "./static/js/main.466399aa.js.map"
   },
   "entrypoints": [
     "static/js/main.466399aa.js"
